@@ -4,17 +4,16 @@
 namespace io3x1\FilamentCommands;
 
 use io3x1\FilamentCommands\Pages\Artisan;
-use Filament\PluginServiceProvider;
+use Filament\PackageServiceProvider;
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Support\ServiceProvider;
 use Spatie\LaravelPackageTools\Package;
 
-class FilamentCommandsProvider extends PluginServiceProvider
+class FilamentCommandsProvider extends PackageServiceProvider
 {
 
     protected $root;
 
-    public static string $name = 'filament-themes';
+    public static string $name = 'filament-commands';
 
     public function __construct($app)
     {
@@ -24,7 +23,7 @@ class FilamentCommandsProvider extends PluginServiceProvider
 
     public function configurePackage(Package $package): void
     {
-        $package->name('filament-commands');
+        $package->name(static::$name);
     }
 
     protected function registerRoutes()
